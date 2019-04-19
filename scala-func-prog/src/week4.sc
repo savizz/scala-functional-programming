@@ -24,8 +24,18 @@ class Nil[T] extends List[T] {
 def nth[T](index: Int, list: List[T]): T =
   if (list.isEmpty) throw new IndexOutOfBoundsException
   else if (index == 0) list.head
-  else nth(index-1, list.tail)
+  else nth(index - 1, list.tail)
 
 
-val list1 = new Cons[Int](1, new Cons[Int](2,new Cons[Int](3,new Nil[Int])))
-val res = nth(2,list1)
+val list1 = new Cons[Int](1, new Cons[Int](2, new Cons[Int](3, new Nil[Int])))
+val res = nth(2, list1)
+
+object List {
+
+  def apply[T](x: T, y: T): List[T] = new Cons[Int](x, new Cons[Int](y, new Nil))
+}
+
+val x = List(1, 2)
+println(x)
+
+
